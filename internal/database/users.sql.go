@@ -25,7 +25,7 @@ type createUserParams struct {
 	Name      string
 }
 
-func (q *Queries) createUser(ctx context.Context, arg createUserParams) (User, error) {
+func (q *Queries) CreateUser(ctx context.Context, arg createUserParams) (User, error) {
 	row := q.db.QueryRowContext(ctx, createUser,
 		arg.ID,
 		arg.CreatedAt,
