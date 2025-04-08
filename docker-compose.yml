@@ -1,0 +1,23 @@
+version: "3.9"
+
+networks:
+  default:
+    name: go-project
+
+services:
+  mysql-esports:
+    image: postgres
+    container_name: postgres_local
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: raj
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: go-project
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data  # Maps local folder to container data dir
+
+    networks:
+      - default
+
